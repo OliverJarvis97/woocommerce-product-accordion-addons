@@ -2,54 +2,40 @@
 
 A lightweight WooCommerce plugin for offering related products as optional add-ons directly above a product’s normal **Add to Cart** button.
 
-Customers choose the extras they want, then add the main product as usual. Selected add-ons are added to the cart only as part of that main add-to-cart action, each with a fixed quantity of one.
+Selected add-ons are added only when the customer adds the parent product to the cart. The default add-on quantity is one, preserving the original simple hire-item workflow.
 
 ## Features
 
-- Select add-on products from **Product data → Linked Products** on each parent product.
-- Compact, minimalist accordion interface above the main Add to Cart button.
-- Larger, easier-to-use checkbox and a clear dropdown-arrow accordion control.
-- Optional add-ons are not added until the customer clicks the parent product’s Add to Cart button.
-- Add-ons are always added with quantity **1**, independently of the parent product quantity.
-- Featured-image thumbnail beside the add-on description, with a click-to-enlarge lightbox.
-- One-paragraph short description and a **Find out more** link that opens the add-on product in a new tab.
-- Supports simple and variable WooCommerce products.
-- Variable add-ons show a **From** price; when selected, the variation selector appears in its place.
-- Selected variable add-ons require a valid variation before the main product can be added to cart.
-- Works with shops that redirect customers to the cart after adding a product.
+- Configure add-ons per product under **Product data → Linked Products**.
+- Minimal accordion interface, image lightbox and Find out more link.
+- Optional per-add-on display-name and description overrides.
+- Optional section-heading override per parent product.
+- Per-add-on quantity controls, disabled by default.
+- Global and per-add-on price adjustments: product price, fixed price or percentage discount.
+- Optional automatic removal of linked add-ons when the parent product is removed from the cart.
+- Simple and variable add-on support.
+- Restrict selectable variations per parent product.
+- If only one variation is allowed, it is chosen automatically and its name is shown without a dropdown.
+- Server-side nonce, product, variation, stock and purchasability validation.
 
-## Requirements
+## Configuration
 
-- WordPress 6.4 or later
-- WooCommerce active
-- PHP 7.4 or later
+1. Go to **WooCommerce → Settings → Products → Accordion add-ons** for global defaults:
+   - default section title;
+   - removal of linked add-ons with the parent;
+   - global fixed-price or percentage-discount rule.
+2. Edit a parent product and open **Product data → Linked Products**.
+3. Choose the products to offer, save once, then configure the optional fields shown for each selected add-on.
+4. For variable add-ons, choose the allowed variations. Leave this empty to allow all currently purchasable variations.
+
+A product-level price rule overrides the global price rule. Adjusted pricing exists only on the linked cart line: it does not change the add-on product’s catalogue price.
 
 ## Installation
 
-1. Download the ZIP attached to the latest [GitHub Release](../../releases/latest).
-2. In WordPress, go to **Plugins → Add New → Upload Plugin**.
-3. Upload the ZIP exactly as downloaded; do not extract it first.
-4. Activate the plugin.
-
-## Configuring add-ons
-
-1. Edit the product that should offer extras.
-2. Open **Product data → Linked Products**.
-3. Use **Product add-ons** to search for and select the products to offer.
-4. Update the parent product.
-
-The selected products will now appear above the normal Add to Cart button on that product page.
-
-## Variable-product add-ons
-
-Variable products can be selected as add-ons. Their minimum price is shown until the customer ticks the add-on. The available variation dropdown then replaces the displayed price.
-
-The dropdown uses the product’s configured attribute label and lists the variation name and price. A variation must be selected for every ticked variable add-on before the main product can be added to cart.
-
-## Security and validation
-
-The plugin uses a WordPress nonce and validates submitted add-on IDs against the add-ons configured on the parent product. It also checks product type, stock, purchasability and the selected variation on the server before anything is added to the cart. Grouped and external products are not supported as add-ons.
+1. Download the ZIP from the latest [GitHub Release](../../releases/latest).
+2. In WordPress go to **Plugins → Add New → Upload Plugin**.
+3. Upload the ZIP as downloaded and activate it.
 
 ## Updates
 
-The plugin checks the latest GitHub Release through the standard WordPress plugin-update process. It does not keep its own GitHub-release cache, so it will use the current release whenever WordPress runs an update check.
+The plugin checks the latest GitHub Release through WordPress’s standard update process and has no custom release cache. Publish a GitHub Release with a matching version tag; the included workflow attaches the installable plugin ZIP.
