@@ -1,0 +1,22 @@
+name: Build plugin release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build installable plugin ZIP
+        run: zip -r WooCommerce-Product-Accordion-Addons-${{ github.ref_name }}.zip woo-product-accordion-addons -x '*.DS_Store'
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: WooCommerce-Product-Accordion-Addons-${{ github.ref_name }}.zip
