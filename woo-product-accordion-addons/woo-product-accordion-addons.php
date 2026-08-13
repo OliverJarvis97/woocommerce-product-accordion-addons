@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WooCommerce Product Accordion Add-ons
  * Description: Select WooCommerce products as optional add-ons. They appear as compact accordions above the main Add to Cart button and are only added when that main product is submitted.
- * Version: 1.6.2
+ * Version: 1.6.3
  * Author: Globe2
  * Update URI: https://github.com/OliverJarvis97/woocommerce-product-accordion-addons
  * Requires Plugins: woocommerce
@@ -41,11 +41,6 @@ final class G2_WC_Product_Accordion_Addons {
 	}
 
 	private function github_release() {
-		$cache_key = 'g2_wc_addons_github_release';
-		$release = get_site_transient( $cache_key );
-		if ( false !== $release ) {
-			return is_array( $release ) ? $release : array();
-		}
 		$response = wp_remote_get( 'https://api.github.com/repos/' . self::GITHUB_REPOSITORY . '/releases/latest', array( 'timeout' => 10, 'headers' => array( 'Accept' => 'application/vnd.github+json', 'User-Agent' => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . home_url( '/' ) ) ) );
 		$release = array();
 		if ( ! is_wp_error( $response ) && 200 === wp_remote_retrieve_response_code( $response ) ) {
@@ -56,14 +51,13 @@ final class G2_WC_Product_Accordion_Addons {
 				}
 			}
 		}
-		set_site_transient( $cache_key, $release, 6 * HOUR_IN_SECONDS );
 		return $release;
 	}
 
 	public function check_for_updates( $transient ) {
 		if ( ! is_object( $transient ) || empty( $transient->checked ) ) { return $transient; }
 		$plugin_file = plugin_basename( __FILE__ );
-		$current_version = isset( $transient->checked[ $plugin_file ] ) ? $transient->checked[ $plugin_file ] : '1.6.0';
+		$current_version = isset( $transient->checked[ $plugin_file ] ) ? $transient->checked[ $plugin_file ] : '1.6.3';
 		$release = $this->github_release();
 		if ( empty( $release['tag_name'] ) ) { return $transient; }
 		$version = ltrim( (string) $release['tag_name'], 'vV' );
