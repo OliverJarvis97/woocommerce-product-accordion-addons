@@ -53,10 +53,3 @@ The plugin uses a WordPress nonce and validates submitted add-on IDs against the
 ## Updates
 
 The plugin checks the latest GitHub Release through the standard WordPress plugin-update process. It does not keep its own GitHub-release cache, so it will use the current release whenever WordPress runs an update check.
-
-To release a new version:
-
-1. Update the plugin version and commit the changes to `main`.
-2. Create and publish a GitHub Release with a matching tag, for example `1.6.3`.
-3. The repository’s release workflow builds and attaches the installable plugin ZIP.
-4. WordPress will then offer the new release in **Dashboard → Updates** / **Plugins**. You can enable WordPress auto-updates for this plugin if you want releases installed automatically.
