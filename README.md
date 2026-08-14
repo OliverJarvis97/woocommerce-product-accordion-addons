@@ -38,4 +38,4 @@ A product-level price rule overrides the global price rule. Adjusted pricing exi
 
 ## Updates
 
-The plugin checks the latest GitHub Release through WordPress’s standard update process and has no custom release cache. Publish a GitHub Release with a matching version tag; the included workflow attaches the installable plugin ZIP.
+The plugin checks the latest GitHub Release through WordPress’s standard update process and has no custom release cache. Its front-end CSS and JavaScript are served as normal plugin assets, so logged-out visitors are not dependent on inline-asset optimisation. Publish a GitHub Release with a matching version tag; the included workflow attaches the installable plugin ZIP.
