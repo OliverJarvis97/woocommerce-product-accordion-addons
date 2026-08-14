@@ -4,7 +4,7 @@ Tags: woocommerce, product add-ons, cart
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.7.2
+Stable tag: 1.7.3
 License: GPLv2 or later
 
 Add optional WooCommerce products to a parent product. Add-ons are displayed above the main Add to Cart button as clean, minimalist accordions, allowing customers to select related hire items, upgrades or extras without leaving the page.
