@@ -4,7 +4,7 @@ Tags: woocommerce, product add-ons, cart
 Requires at least: 6.4
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 1.7.4
+Stable tag: 1.7.2
 License: GPLv2 or later
 
 Add optional WooCommerce products to a parent product. Add-ons are displayed above the main Add to Cart button as clean, minimalist accordions, allowing customers to select related hire items, upgrades or extras without leaving the page.
@@ -31,11 +31,11 @@ Every add-on defaults to quantity 1. Add-ons must be simple or variable purchasa
 
 == Advanced options ==
 
-Under Product data > Linked Products, each selected add-on is contained in its own collapsible panel with optional overrides for its display name, description, quantity selection, price and allowed variations. A custom section heading can also be set for the parent product.
+Under Product data > Linked Products, each selected add-on has optional overrides for its display name, description, quantity selection, price and allowed variations. A custom section heading can also be set for the parent product.
 
 Under WooCommerce > Settings > Products > Accordion add-ons, you can set the default heading, decide whether linked add-ons should be removed when the parent cart item is removed, and apply a global fixed price or percentage discount. A product-level price adjustment overrides the global rule. Price adjustments are attached to the linked cart item only, and are removed with it.
 
-For variable add-ons, you can limit the variations that may be chosen and set a separate fixed price or percentage discount for every variation. If exactly one variation is allowed and in stock, it is selected automatically and its name is shown without a dropdown.
+For variable add-ons, you can limit the variations that may be chosen. If exactly one variation is allowed and in stock, it is selected automatically and its name is shown without a dropdown.
 
 The plugin uses WooCommerce's normal cart actions. If your shop redirects to cart after adding a product, that redirect will continue to work and the chosen add-ons will already be in the cart.
 
