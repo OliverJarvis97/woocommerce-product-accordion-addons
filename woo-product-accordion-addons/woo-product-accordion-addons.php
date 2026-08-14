@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WooCommerce Product Accordion Add-ons
  * Description: Select WooCommerce products as optional add-ons. They appear as compact accordions above the main Add to Cart button and are only added when that main product is submitted.
- * Version: 1.7.5
+ * Version: 1.7.6
  * Author: Globe2
  * Update URI: https://github.com/OliverJarvis97/woocommerce-product-accordion-addons
  * Requires Plugins: woocommerce
@@ -185,12 +185,12 @@ final class G2_WC_Product_Accordion_Addons {
 		if ( ! function_exists( 'is_product' ) || ! is_product() ) {
 			return;
 		}
-		global $product;
+		$product = wc_get_product( get_queried_object_id() );
 		if ( ! $product instanceof WC_Product || empty( $this->get_valid_addons( $product->get_id() ) ) ) {
 			return;
 		}
-		wp_enqueue_style( 'g2-wc-product-accordion-addons', plugin_dir_url( __FILE__ ) . 'assets/css/frontend.css', array(), '1.7.5' );
-		wp_enqueue_script( 'g2-wc-product-accordion-addons', plugin_dir_url( __FILE__ ) . 'assets/js/frontend.js', array(), '1.7.5', true );
+		wp_enqueue_style( 'g2-wc-product-accordion-addons', plugin_dir_url( __FILE__ ) . 'assets/css/frontend.css', array(), '1.7.6' );
+		wp_enqueue_script( 'g2-wc-product-accordion-addons', plugin_dir_url( __FILE__ ) . 'assets/js/frontend.js', array(), '1.7.6', true );
 	}
 
 	public function render_addons() {
